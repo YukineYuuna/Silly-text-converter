@@ -1,1 +1,1 @@
-# Silly-text-converter
+# 一个文字转傻逼的傻逼加密脚本
