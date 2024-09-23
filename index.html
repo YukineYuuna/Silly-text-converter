@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>傻逼生成器</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 200px;
+        }
+        #output {
+            font-size: 24px;
+            white-space: pre-wrap;
+
+        }
+    </style>
+</head>
+<body>
+    <h1>输入内容并转换</h1>
+    <input type="text" id="inputText" placeholder="输入内容">
+    <button onclick="convert()">转换</button>
+    <div id="output"></div>
+
+    <script>
+        function convert() {
+            const inputText = document.getElementById('inputText').value;
+            let result = "";
+            for (let i = 0; i < inputText.length; i++) {
+                const char = inputText[i];
+                const b = char.charCodeAt(0).toString(2).padStart(16, '0');
+                let replace = "";
+                for (let j = 0; j < b.length; j++) {
+                    if (b[j] === '0') {
+                        replace += "傻";
+                    } else {
+                        replace += "逼";
+                    }
+                }
+                result += replace + " ";
+            }
+            document.getElementById('output').innerText = result;
+        }
+    </script>
+</body>
+</html>
